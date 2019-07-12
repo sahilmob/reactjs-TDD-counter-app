@@ -12,6 +12,7 @@ class App extends React.Component {
 			<div className="App" data-test="component-app">
 				<h1 data-test="counter-display">The count is {counter}</h1>
 				<button data-test="increment-button" onClick={() => this.setState({ counter: counter + 1 })}>Increment Counter</button>
+				<button data-test="decrement-button" onClick={() => this.setState({ counter: counter - 1 })}>Decrement Counter</button>
 			</div>
 		)
 	}
