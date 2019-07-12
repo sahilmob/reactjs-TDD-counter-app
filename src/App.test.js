@@ -87,3 +87,20 @@ it("should not decrement the counter below 0", () => {
 	expect(errorMsg).toExist
 
 })
+
+it("should clear error message on increment", () => {
+	const counter = 0
+	const wrapper = setup(null, { counter })
+	const incrementButton = findByTestAttr(wrapper, "increment-button")
+	const decrementButton = findByTestAttr(wrapper, "decrement-button")
+	const errorMsg = findByTestAttr(wrapper, "decrement-error")
+	decrementButton.simulate("click")
+	wrapper.update()
+
+	expect(errorMsg).toExist
+	expect(wrapper.state().showError).toBeTruthy()
+	incrementButton.simulate("click")
+	expect(errorMsg).not.toExist
+	expect(wrapper.state.showError).toBeFalsy()
+
+})
