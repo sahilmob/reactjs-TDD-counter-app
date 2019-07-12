@@ -73,3 +73,17 @@ it("should decrement the counter on button click", () => {
 	const counterDisplay = findByTestAttr(wrapper, "counter-display")
 	expect(counterDisplay.text()).toContain(counter - 1)
 })
+
+it("should not decrement the counter below 0", () => {
+	const counter = 0;
+	const wrapper = setup(null, { counter })
+	const button = findByTestAttr(wrapper, "decrement-button")
+	const counterDisplay = findByTestAttr(wrapper, "counter-display")
+	const errorMsg = findByTestAttr(wrapper, "decrement-error")
+	button.simulate("click")
+	wrapper.update()
+	expect(wrapper.state().counter).toEqual(0);
+	expect(counterDisplay.text()).toContain(0)
+	expect(errorMsg).toExist
+
+})
