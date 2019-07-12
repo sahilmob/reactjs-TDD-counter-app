@@ -45,7 +45,9 @@ it("should renders counter display", () => {
 })
 
 it("renders the counter at 0 initially", () => {
-
+	const wrapper = setup()
+	const initialCounterState = wrapper.state('counter')
+	expect(initialCounterState).toBe(0)
 })
 
 it("should increment the counter on button click", () => {
