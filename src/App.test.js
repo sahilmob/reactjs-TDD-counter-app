@@ -12,11 +12,15 @@ it("should renders without error", () => {
 	expect(appComponent.length).toBe(1);
 })
 it("should renders increment button", () => {
-
+	const wrapper = shallow(<App />);
+	const button = wrapper.find("[data-test='increment-button']");
+	expect(button.length).toBe(1);
 })
 
 it("should renders counter display", () => {
-
+	const wrapper = shallow(<App />);
+	const counterDisplay = wrapper.find("[data-test='counter-display']");
+	expect(counterDisplay.length).toBe(1);
 })
 
 it("renders the counter at 0 initially", () => {
