@@ -6,7 +6,23 @@ import React from "react";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-it("renders without crashing", () => {
+it("should renders without error", () => {
 	const wrapper = shallow(<App />);
-	expect(wrapper).toBeTruthy();
-});
+	const appComponent = wrapper.find("[data-test='component-app']");
+	expect(appComponent.length).toBe(1);
+})
+it("should renders increment button", () => {
+
+})
+
+it("should renders counter display", () => {
+
+})
+
+it("renders the counter at 0 initially", () => {
+
+})
+
+it("should increment the counter on button click", () => {
+
+})
