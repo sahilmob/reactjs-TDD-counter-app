@@ -1,15 +1,23 @@
 import "./App.css";
 
-import React, { useState } from "react";
+import React from "react";
 
-function App () {
-	let [counter, setCounter] = useState(0)
-	return (
-		<div className="App" data-test="component-app">
-			<h1 data-test="counter-display">The count is {counter}</h1>
-			<button data-test="increment-button" onClick={() => setCounter(++counter)}>Increment Counter</button>
-		</div>
-	);
+class App extends React.Component {
+	state = {
+		counter: 0
+	}
+	render () {
+		const { counter } = this.state
+		return (
+			<div className="App" data-test="component-app">
+				<h1 data-test="counter-display">The count is {counter}</h1>
+				<button data-test="increment-button" onClick={() => this.setState({ counter: counter + 1 })}>Increment Counter</button>
+			</div>
+		)
+	}
 }
 
 export default App;
+
+
+
